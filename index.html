@@ -10,10 +10,10 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-title" content="Turni 2026">
     
-    <link rel="icon" type="image/svg+xml" href="icona.svg">
+    <link rel="manifest" href="manifest.json">
 
-<link rel="apple-touch-icon" href="icona.svg">
-
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <title>TURNI AUTISTI 2026</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
@@ -31,7 +31,7 @@
             --cell-h: 82px;             
             --font-base: 0.95rem;       
             --font-small: 0.75rem;      
-            --th-h: 44px;               
+            --th-h: 44px;                
             
             /* --- PALETTE COLORI ORIGINALI --- */
             --c-M: #a0c7ff; --t-M: #024e74; --b-M: #bae6fd;
@@ -42,9 +42,9 @@
             --c-SM: #3a8cff; --t-SM: #004567; --b-SM: #cbd5e1;
 
             --bg-ferie: #f99214; --t-ferie: #f4e7e2; --b-ferie: #a15300;
-            --bg-perm: #38cf65; --t-perm: #efefef; --b-perm: #004e1c;
-            --bg-cong: #f0dc00; --t-cong: #fffbf6; --b-cong: #9a8000;
-            --bg-rec: #fe74c0; --t-rec: #ffe8f2; --b-rec: #7f0046;
+            --bg-perm: #effff4; --t-perm: #efefef; --b-perm: #004e1c;
+            --bg-cong: #ffea00; --t-cong: #000000; --b-cong: #fbff00;
+            --bg-rec: #d00173; --t-rec: #ffe8f2; --b-rec: #c3006b;
             
             --bg-fest: #f0f9ff; --t-fest: #0284c7; --b-fest: #7dd3fc;
             --bg-mal: #fef2f2; --t-mal: #dc2626; --b-mal: #fca5a5;
@@ -78,7 +78,7 @@
         }
         
         .top-bar { padding: 0 16px; display: flex; justify-content: space-between; align-items: center; height: 55px; flex-shrink: 0; }
-        .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px; }
         .right-controls { display: flex; gap: 8px; position: relative; }
 
         .btn-action { 
@@ -372,7 +372,7 @@
     <header>
         <div class="top-bar">
             <div class="logo">
-                <span class="material-icons-round" style="color:var(--primary)">calendar_month</span> 
+                <img src="logo.png" style="height: 45px; width: auto; display:block;" alt="Logo 118">
                 TURNI AUTISTI 2026
             </div>
             <div class="right-controls">
@@ -383,6 +383,9 @@
                 <div id="menu-dropdown">
                     <div class="menu-item" onclick="openDinnerModal()">
                         <span class="material-icons-round">restaurant</span> Organizza Uscita
+                    </div>
+                    <div class="menu-item" onclick="openStatsSelection()">
+                        <span class="material-icons-round">bar_chart</span> Statistiche
                     </div>
                 </div>
 
@@ -1046,6 +1049,7 @@
         // --- GESTIONE STATISTICHE ---
         
         function openStatsSelection() {
+            toggleMenu(); // Chiude il menu
             let container = document.getElementById('stats-container');
             container.innerHTML = "";
             let h3 = document.querySelector('.stats-header h3');
@@ -1331,5 +1335,4 @@
         }
     </script>
 </body>
-
 </html>
